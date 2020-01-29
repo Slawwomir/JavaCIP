@@ -4,25 +4,27 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BoundedBufferTest {
+class Test {
 
     private static final long LOCKUP_DETECT_TIMEOUT = 5000;
-    @Test
+
+    @org.junit.jupiter.api.Test
     public void testIsEmptyWhenConstructed() {
         BoundedBuffer<Integer> boundedBuffer = new BoundedBuffer<Integer>(10);
         assertTrue(boundedBuffer.isEmpty());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testIsFullAfterPuts() throws InterruptedException {
         BoundedBuffer<Integer> boundedBuffer = new BoundedBuffer<Integer>(10);
         for (int i = 0; i < 10; i++) {
             boundedBuffer.put(i);
         }
+
         assertTrue(boundedBuffer.isFull());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testTakeBlocksWhenEmpty() {
         final BoundedBuffer<Integer> bb = new BoundedBuffer<>(10);
         Thread taker = new Thread(() -> {

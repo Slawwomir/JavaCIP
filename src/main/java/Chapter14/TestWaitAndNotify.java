@@ -1,4 +1,4 @@
-package Chpater14;
+package Chapter14;
 
 public class TestWaitAndNotify {
 
